@@ -76,14 +76,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'g6db',
-        'USER': 'grupo6',
-        'PASSWORD': 'holagrupo6',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'g6db',
+       'USER': 'grupo6',
+       'PASSWORD': 'holagrupo6',
+       'HOST': '127.0.0.1',
+       'PORT': '3306',
 
-    }
+  }
 }
 
 
