@@ -1,9 +1,11 @@
+from django.contrib.auth import forms
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Comment
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
 
 
 def post_list(request):
@@ -76,4 +78,3 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
-
