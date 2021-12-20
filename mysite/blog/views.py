@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterForm
+from django.contrib.auth.views import LoginView
+from .forms import RegisterForm, LoginForm
 
 
 def post_list(request):
@@ -53,7 +56,7 @@ def post_remove(request, pk):
     post.delete()
     return redirect('post_list')
 
-
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -78,3 +81,22 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+
+
+def register(response):
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
+        if form.is_valid():
+             return redirect('post_list')
+    else:
+        form = RegisterForm()
+        return render(response, "blog/register.html", {"form":form})
+
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+    permissions = (
+            ("can_add_comment","puede comentar"),
+            ("can_view_comment","puede ver comentarios"),
+    )
+

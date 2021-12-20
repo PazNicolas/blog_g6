@@ -4,6 +4,24 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    CATEGORIES_CHOICES = (
+        ('Fin de la Pobreza' , 'Fin de la pobreza'),
+        ('Hambre Cero' ,'Hambre Cero'),
+        ('Salud y Bienestar' ,'Salud y Bienestar'),
+        ('Educación de Calidad', 'Educación de Calidad'),
+        ('Igualdad de Género', 'Igualdad de Género'),
+        ('Agua limpia y Saneamiento', 'Agua limpia y Saneamiento'),
+        ('Energía asequible y no contaminante', 'Energía asequible y no contaminante'),
+        ('Agua, Industria,Innovacion e Infraestructura', 'Agua, Industria,Innovacion e Infraestructura'),
+        ('Reducción de las Desigualdades', 'Reducción de las Desigualdades'),
+        ('Ciudades Sostenibles', 'Ciudades Sostenibles'),
+        ('Producción y Consumo Responsable', 'Producción y Consumo Responsable'),
+        ('Acción por el Clima' , 'Acción por el Clima'),
+        ('Vida Sumbarina' , 'Vida Submarina'),
+        ('Vida de Ecosistemas Terrestres' , 'Vida de Ecosistemas Terrestres'),
+        ('Paz y Justicia' , 'Paz y Justicia'),
+        ('Alianzas para lograr los objetivos' , 'Alianzas para lograr los objetivos')
+           )
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -11,6 +29,12 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
+
+    category = models.CharField(
+        max_length=120,
+        choices=CATEGORIES_CHOICES,
+        default='sin categoria'
+        )
 
     def publish(self):
         self.published_date = timezone.now()

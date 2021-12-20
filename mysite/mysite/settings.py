@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CRISPY_TEMPLATE_PACK="bootstrap3"
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'register.apps.RegisterConfig',
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+LOGIN_REDIRECT_URL = 'post_list'
+LOGIN_URL = 'login'
+
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 TEMPLATES = [
     {
