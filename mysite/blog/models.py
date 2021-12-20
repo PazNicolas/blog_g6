@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.db.models import Count
 
 
 class Post(models.Model):
@@ -13,7 +14,7 @@ class Post(models.Model):
         ('Agua limpia y Saneamiento', 'Agua limpia y Saneamiento'),
         ('Energía asequible y no contaminante', 'Energía asequible y no contaminante'),
         ('Trabajo Decente', 'Trabajo Decente'),
-        ('Agua, Industria,Innovacion e Infraestructura', 'Agua, Industria,Innovacion e Infraestructura'),
+        ('Industria,Innovacion e Infraestructura', 'Industria,Innovacion e Infraestructura'),
         ('Reducción de las Desigualdades', 'Reducción de las Desigualdades'),
         ('Ciudades Sostenibles', 'Ciudades Sostenibles'),
         ('Producción y Consumo Responsable', 'Producción y Consumo Responsable'),
@@ -57,3 +58,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+

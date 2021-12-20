@@ -104,7 +104,7 @@ def about_us(request):
     return render(request, "blog/about_us.html")
 
 
-#Filtros
+#---------------------------Filtros -------------------------#
 
 def filter_by_category(request):
     posts = Post.objects.all().order_by('category')
@@ -129,3 +129,4 @@ def filter_by_publish(request):
 def filter_by_publish_reverse(request):
     posts = Post.objects.all().order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
+

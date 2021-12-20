@@ -8,7 +8,6 @@ from .views import filter_by_category_reverse, register
 from blog.views import CustomLoginView  
 from blog.forms import LoginForm
 from blog.views import about_us, filter_by_category, filter_by_category_reverse, filter_by_title, filter_by_title_reverse, filter_by_publish, filter_by_publish_reverse
-
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -29,7 +28,8 @@ urlpatterns = [
     path('filter_by_title_reverse/', filter_by_title_reverse, name='filter_by_title_reverse'),
     path('filter_by_publish/', filter_by_publish, name='filter_by_publish'),
     path('filter_by_publish_reverse/', filter_by_publish_reverse, name='filter_by_publish_reverse'),
-  
+
 ]
+  
 if settings.DEBUG: # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
