@@ -113,3 +113,19 @@ def filter_by_category(request):
 def filter_by_category_reverse(request):
     posts = Post.objects.all().order_by('-category')
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def filter_by_title(request):
+    posts = Post.objects.all().order_by('title')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def filter_by_title_reverse(request):
+    posts = Post.objects.all().order_by('-title')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def filter_by_publish(request):
+    posts = Post.objects.all().order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def filter_by_publish_reverse(request):
+    posts = Post.objects.all().order_by('-published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Desarrollo Sustentable (G-6)</title>
+    <title>Desarrollo Sostenible (G-6)</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -20,16 +20,20 @@
                   Filtrar por:
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end">
-                    <li><a class="dropdown-item" href="{% url 'filter_by_category' %}">Filtrar por categoria</a></li>
-                    <li><a class="dropdown-item" href="{% url 'filter_by_category_reverse' %}">Filtrar por categoria(reverso)</a></li>
-                    <li><a class="dropdown-item" href="{% url 'register' %}">Filtrar por categoria</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_category' %}">Filtrar por Categoria</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_category_reverse' %}">Filtrar por Categoria(reverso)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_title' %}">Filtrar por Título</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_title_reverse' %}">Filtrar por Título(reverso)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_publish' %}">Filtrar por Fecha de Publicación</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_publish_reverse' %}">Filtrar por Fecha de Publicación(reverso)</a></li>
+
                 </ul>
             </div>
             <a class="btn btn-primary" href="{% url 'register' %}" role="button">Registrarse</a>
             <a class="btn btn-primary" href="{% url 'login' %}" role="button">Iniciar Sesion</a>
             <a class="btn btn-primary" href="{% url 'logout' %}" role="button" style="color:black;">Cerrar Sesion</a>
             <a class="btn btn-primary" href="{% url 'about_us' %}">Sobre Nosotros</a>
-            <h1><a href="/">Desarrollo Sustentable 2030 ONU</a></h1>
+            <h1><a href="/">Desarrollo Sostenible 2030 ONU - G6</a></h1>
         </div>
         <div class="content container">
             <div class="row">
