@@ -5,6 +5,7 @@ from . import views
 from .views import register
 from blog.views import CustomLoginView  
 from blog.forms import LoginForm
+from blog.views import about_us
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -19,5 +20,6 @@ urlpatterns = [
     path('register/', register, name="register"),
     path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='blog/login.html',authentication_form=LoginForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='blog/logout.html'), name='logout'),
+    path('about_us/',about_us, name='about_us'),
 
 ]

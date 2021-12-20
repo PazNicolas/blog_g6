@@ -100,3 +100,5 @@ class CustomLoginView(LoginView):
             ("can_view_comment","puede ver comentarios"),
     )
 
+def about_us(request):
+    return render(request, "blog/about_us.html")

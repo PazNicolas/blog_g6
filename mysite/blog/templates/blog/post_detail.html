@@ -8,6 +8,7 @@
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Añadir comentario</a>
     <h2>{{ post.title }}</h2>
     <p>{{ post.text|linebreaksbr }}</p>
+    <p>Categoria:{{ post.category|linebreaksbr }}</p>
     {% for comment in post.comments.all %} 
     <div class="comment">
         <div class="date">
@@ -18,6 +19,6 @@
   {% empty %}
     <p>Todavia no hay comentarios, se el primero!</p>
     {% endfor %}
-
+    
 </div>
 {% endblock %}
