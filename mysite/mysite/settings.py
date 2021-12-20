@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-c8eb75k)c1br2owon%!aq43pjn_=f1h4-372mm2im)#(b9=mqg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 CRISPY_TEMPLATE_PACK="bootstrap3"
@@ -132,6 +133,11 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIR = (
+    os.path.join(BASE_DIR, 'static')
+)
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

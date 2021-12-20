@@ -12,6 +12,7 @@ class Post(models.Model):
         ('Igualdad de Género', 'Igualdad de Género'),
         ('Agua limpia y Saneamiento', 'Agua limpia y Saneamiento'),
         ('Energía asequible y no contaminante', 'Energía asequible y no contaminante'),
+        ('Trabajo Decente', 'Trabajo Decente'),
         ('Agua, Industria,Innovacion e Infraestructura', 'Agua, Industria,Innovacion e Infraestructura'),
         ('Reducción de las Desigualdades', 'Reducción de las Desigualdades'),
         ('Ciudades Sostenibles', 'Ciudades Sostenibles'),
@@ -25,11 +26,11 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    image = models.ImageField(null=True, blank=True,upload_to="media/" )
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-
     category = models.CharField(
         max_length=120,
         choices=CATEGORIES_CHOICES,

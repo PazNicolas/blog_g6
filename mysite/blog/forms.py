@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'text',)
+        fields = ('title', 'text', 'image')
 
 class CommentForm(forms.ModelForm):
 
@@ -25,9 +25,9 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(max_length=100,required=True,widget=forms.TextInput(attrs={'placeholder': 'Username','class': 'form-control', }))
-    password = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'form-control', 'data-toggle': 'password', 'id': 'password', 'name': 'password', }))
+    username = forms.CharField(max_length=100,required=True,widget=forms.TextInput(attrs={'placeholder': 'Nombre de Usuario','class': 'form-control', }))
+    password = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña', 'class': 'form-control', 'data-toggle': 'password', 'id': 'password', 'name': 'password', }))
 
     class Meta:
         model = User
-        fields = ['username', 'password', 'remember_me']
+        fields = ['username', 'contraseña', 'remember_me']

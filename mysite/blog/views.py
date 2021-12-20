@@ -83,12 +83,12 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 
-
 def register(response):
     if response.method == "POST":
         form = RegisterForm(response.POST)
         if form.is_valid():
-             return redirect('post_list')
+            form.save()
+            return redirect('post_list')
     else:
         form = RegisterForm()
         return render(response, "blog/register.html", {"form":form})
@@ -102,3 +102,14 @@ class CustomLoginView(LoginView):
 
 def about_us(request):
     return render(request, "blog/about_us.html")
+
+
+#Filtros
+
+def filter_by_category(request):
+    posts = Post.objects.all().order_by('category')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def filter_by_category_reverse(request):
+    posts = Post.objects.all().order_by('-category')
+    return render(request, 'blog/post_list.html', {'posts': posts})

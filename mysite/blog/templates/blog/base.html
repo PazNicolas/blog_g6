@@ -20,9 +20,9 @@
                   Filtrar por:
                 </button>
                 <ul class="dropdown-menu dropdown-menu-lg-end">
-                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    <li><a class="dropdown-item" href="#">Menu item</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_category' %}">Filtrar por categoria</a></li>
+                    <li><a class="dropdown-item" href="{% url 'filter_by_category_reverse' %}">Filtrar por categoria(reverso)</a></li>
+                    <li><a class="dropdown-item" href="{% url 'register' %}">Filtrar por categoria</a></li>
                 </ul>
             </div>
             <a class="btn btn-primary" href="{% url 'register' %}" role="button">Registrarse</a>
