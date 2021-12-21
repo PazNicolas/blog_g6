@@ -1,11 +1,11 @@
 from django.contrib.auth import forms
+from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Comment
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterForm
 from django.contrib.auth.views import LoginView
 from .forms import RegisterForm, LoginForm
@@ -130,3 +130,6 @@ def filter_by_publish_reverse(request):
     posts = Post.objects.all().order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def filter_by_number_of_comments(request):
+    posts = Post.objects.raw('SELECT blog_post.*, (SELECT count(*) FROM blog_comment WHERE blog_comment.post_id = blog_post.id) AS comentario FROM blog_post ORDER BY comentario DESC LIMIT 3')
+    return render(request, 'blog/post_list.html', {'posts': posts})

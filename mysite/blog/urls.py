@@ -4,10 +4,10 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from . import views
-from .views import filter_by_category_reverse, register
+from .views import filter_by_category_reverse,register
 from blog.views import CustomLoginView  
 from blog.forms import LoginForm
-from blog.views import about_us, filter_by_category, filter_by_category_reverse, filter_by_title, filter_by_title_reverse, filter_by_publish, filter_by_publish_reverse
+from blog.views import about_us, filter_by_category, filter_by_category_reverse, filter_by_title, filter_by_title_reverse, filter_by_publish, filter_by_publish_reverse,filter_by_number_of_comments
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('filter_by_title_reverse/', filter_by_title_reverse, name='filter_by_title_reverse'),
     path('filter_by_publish/', filter_by_publish, name='filter_by_publish'),
     path('filter_by_publish_reverse/', filter_by_publish_reverse, name='filter_by_publish_reverse'),
+    path('filter_by_number_of_comments/', filter_by_number_of_comments, name='filter_by_number_of_comments'),
 
 ]
   
