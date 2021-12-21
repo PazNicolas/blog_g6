@@ -5,7 +5,7 @@
     </div>
     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
     <p>{{ post.text|linebreaksbr }}</p>
-    <p>Categoria:{{ post.category|linebreaksbr }}</p>
+    <h2>Categoria:{{ post.category|linebreaksbr }}</h2>
     <a href="{% url 'post_detail' pk=post.pk %}">Comentarios: {{ post.comments.count }}</a>
 </div>
 {% endfor %} {% endblock content %}

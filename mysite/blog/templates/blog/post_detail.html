@@ -9,7 +9,7 @@
     <h2>{{ post.title }}</h2>
     <img src="{{ post.image.url}}" alt="{{ post.title }}">
     <p>{{ post.text|linebreaksbr }}</p>
-    <p>Categoria:{{ post.category|linebreaksbr }}</p>
+    <h4>Categoria:{{ post.category|linebreaksbr }}</h4>
     {% for comment in post.comments.all %}
     <div class="comment">
         <div class="date">
@@ -18,7 +18,7 @@
         <p>{{ comment.text|linebreaks }}</p>
     </div>
     {% empty %}
-    <p>Todavia no hay comentarios, se el primero!</p>
+    <h3>Todavia no hay comentarios, se el primero!</h3>
     {% endfor %}
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Añadir comentario</a>
 </div>
